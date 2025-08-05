@@ -11,17 +11,17 @@ function DeleteConfirmation({ pet }: DeleteConfirmationProps) {
 
   return (
     <div style={{ 
-      position: 'relative',
-      width: '100%', 
-      height: '420px',
-      paddingTop: '20px'
+      width: '100%'
     }}>
       {/* Seção de informações do pet */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gap: '32px',
-        marginBottom: '40px'
+        marginBottom: '40px',
+        // background: 'rgba(255, 255, 255, 0.1)', // Cor de fundo do bloco de informações
+        borderRadius: '10px',
+        padding: '24px'
       }}>
         {/* Coluna esquerda */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -272,7 +272,7 @@ function DeleteConfirmation({ pet }: DeleteConfirmationProps) {
               color: '#FFFFFF',
               fontWeight: '400'
             }}>
-              22/08/2020
+              {pet.nascimento ? new Date(pet.nascimento).toLocaleDateString() : 'Não informado'}
             </div>
           </div>
         </div>
@@ -281,17 +281,17 @@ function DeleteConfirmation({ pet }: DeleteConfirmationProps) {
       {/* Pergunta de confirmação */}
       <div style={{
         textAlign: 'center',
-        marginBottom: '40px'
+        fontFamily: 'Ubuntu',
+        fontStyle: 'normal',
+        fontWeight: '700',
+        fontSize: '18px',
+        lineHeight: '21px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#FFFFFF'
       }}>
-        <p style={{
-          fontFamily: 'Ubuntu',
-          fontSize: '16px',
-          fontWeight: '400',
-          color: '#FFFFFF',
-          margin: '0'
-        }}>
-          Tem certeza que deseja remover esse pet?
-        </p>
+        Tem certeza que deseja remover esse pet?
       </div>
     </div>
   );
