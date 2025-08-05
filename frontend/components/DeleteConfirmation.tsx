@@ -19,7 +19,6 @@ function DeleteConfirmation({ pet }: DeleteConfirmationProps) {
         gridTemplateColumns: '1fr 1fr',
         gap: '32px',
         marginBottom: '40px',
-        // background: 'rgba(255, 255, 255, 0.1)', // Cor de fundo do bloco de informações
         borderRadius: '10px',
         padding: '24px'
       }}>
@@ -272,7 +271,7 @@ function DeleteConfirmation({ pet }: DeleteConfirmationProps) {
               color: '#FFFFFF',
               fontWeight: '400'
             }}>
-              {pet.nascimento ? new Date(pet.nascimento).toLocaleDateString() : 'Não informado'}
+              {pet.idade} Anos
             </div>
           </div>
         </div>

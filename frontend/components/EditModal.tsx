@@ -222,7 +222,6 @@ function EditModal({ isOpen, onClose, children }: EditModalProps) {
         }}>
           <button
             onClick={() => {
-              // Submeter o formulário encontrando o form dentro do modal
               const form = document.querySelector('form');
               if (form) {
                 form.requestSubmit();
@@ -265,7 +264,6 @@ function EditModal({ isOpen, onClose, children }: EditModalProps) {
     </div>
   );
 
-  // Garantir que só roda no client
   if (typeof window === 'undefined') return null;
   
   return createPortal(modalContent, document.body);

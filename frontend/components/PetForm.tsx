@@ -45,7 +45,7 @@ function PetForm({ pet, onSubmit }: PetFormProps) {
     const petData: Pet = {
       id: pet?.id || 0,
       nome: formData.nome,
-      tipo: formData.tipo,
+      tipo: formData.tipo as 'cachorro' | 'gato',
       raca: formData.raca,
       idade: 2,
       donoId: pet?.donoId || 0,
@@ -65,7 +65,7 @@ function PetForm({ pet, onSubmit }: PetFormProps) {
   };
 
   const renderCalendar = () => {
-    const currentMonth = 7; // Agosto (0-indexed)
+    const currentMonth = 7;
     const currentYear = 2020;
     const daysInMonth = getDaysInMonth(currentMonth + 1, currentYear);
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();

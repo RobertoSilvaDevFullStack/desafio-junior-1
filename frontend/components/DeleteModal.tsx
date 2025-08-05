@@ -383,7 +383,7 @@ function DeleteModal({ isOpen, onClose, onConfirm, pet }: DeleteModalProps) {
                   color: '#FFFFFF',
                   fontWeight: '400'
                 }}>
-                  {pet.nascimento ? new Date(pet.nascimento).toLocaleDateString() : 'Não informado'}
+                  {pet.idade} Anos
                 </div>
               </div>
             </div>

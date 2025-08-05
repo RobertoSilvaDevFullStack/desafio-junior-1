@@ -9,7 +9,6 @@ import EditModal from './EditModal';
 import DeleteModal from './DeleteModal';
 import PetForm from './PetForm';
 
-// Dados mockados para demonstração - seguindo o design do Figma
 const mockPets: Pet[] = [
   {
     id: 1,
@@ -235,7 +234,6 @@ const mockPets: Pet[] = [
       endereco: 'Av. Rosa, 693'
     }
   },
-  // Página 2 - Pets 17-32
   {
     id: 17,
     nome: 'Bolt Mendes',
@@ -460,7 +458,6 @@ const mockPets: Pet[] = [
       endereco: 'Av. Preciosa, 471'
     }
   },
-  // Página 3 - Pets 33-48
   {
     id: 33,
     nome: 'Apollo Duarte',
@@ -685,7 +682,6 @@ const mockPets: Pet[] = [
       endereco: 'Av. Angélica, 258'
     }
   },
-  // Página 4 - Pets 49-64
   {
     id: 49,
     nome: 'Phoenix Alves',
@@ -920,7 +916,7 @@ function PetList() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedPet, setSelectedPet] = useState<Pet | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 16; // Mantendo 16 pets por página
+  const itemsPerPage = 16;
 
   const openCreateModal = () => {
     setSelectedPet(null);
@@ -953,12 +949,10 @@ function PetList() {
 
   const handleSavePet = (petData: Pet) => {
     if (!selectedPet) {
-      // Create new pet
       const newId = Math.max(...pets.map(p => p.id)) + 1;
       const newPet = { ...petData, id: newId };
       setPets([...pets, newPet]);
     } else {
-      // Update existing pet
       const updatedPet = { ...petData, id: selectedPet.id };
       setPets(pets.map(pet => pet.id === selectedPet.id ? updatedPet : pet));
     }
@@ -970,7 +964,6 @@ function PetList() {
     pet.dono?.nome.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Cálculos de paginação
   const totalPages = Math.ceil(filteredPets.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -988,7 +981,6 @@ function PetList() {
     }
   };
 
-  // Reset da página quando o termo de busca mudar
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm]);

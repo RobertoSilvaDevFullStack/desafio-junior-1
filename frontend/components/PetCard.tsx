@@ -8,9 +8,7 @@ interface PetCardProps {
   onDelete: (pet: Pet) => void;
 }
 
-// Componente para ícones usando os SVGs originais exatos dos assets
 const PetIcon = ({ tipo, petId }: { tipo: string; petId?: string }) => {
-  // Criar IDs únicos para cada instância
   const uniqueId = `${tipo}_${petId || Math.random().toString(36).substr(2, 9)}`;
   const gradientId = `paint0_linear_${uniqueId}`;
   

@@ -235,7 +235,6 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
           {/* Rectangle 20 - Background do botão Cadastrar */}
           <button
             onClick={() => {
-              // Submeter o formulário encontrando o form dentro do modal
               const form = document.querySelector('form');
               if (form) {
                 form.requestSubmit();
@@ -287,8 +286,6 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
     </div>
   );
 
-  // Renderizar no portal para evitar problemas de z-index
-  // Garantir que só roda no client
   if (typeof window === 'undefined') return null;
   
   return createPortal(modalContent, document.body);
